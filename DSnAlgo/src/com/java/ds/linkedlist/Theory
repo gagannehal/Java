@@ -1,0 +1,118 @@
+Let us consider that a person named Noah is travelling to Europe for a holiday. He plans to travel to different cities by train. The trip will cover most of the major cities like Milan, Venice, Paris, Amsterdam, etc.
+
+He wants to store the information as to what cities he will be covering and in which order. The duration of the trip is not fixed and also the number of cities that Noah wants to cover are not finalized and may change on the way. 
+
+
+The trip details need to be stored in some data structure. Since the number of cities is not fixed, it is not a good idea to use an array for storing the information.
+
+This kind of information can be stored using another data structure called Linked list. Linked list eliminates the disadvantages of an array that we had discussed previously.
+
+
+
+#############################################################################################################################################################################
+
+
+
+
+Before storing the trip details in a linked list, let us first try to understand linked list.
+
+A Linked List is a linear data structure used to store collections of objects. A Linked List is made up of individual nodes which may be present at different memory locations, i.e., they need not be contiguous unlike arrays. These nodes are connected or linked to each other. A node is made up of two parts - one to store the data and a link to connect to the next node. 
+
+
+The first element or node in a linked list is called the head and the last node of the Linked List is called the tail.
+
+Let us now see how can linked list be used for representing Noah's trip.
+
+Noah will be starting his journey from Milan. At the moment, Noah has just planned two other cities - Venice and Munich. Let us see how this can be represented using a linked list.
+
+
+#############################################################################################################################################################################
+
+
+
+Let us now try implementing Linked list using Java.
+
+We need to first represent a node. A node can be represented by creating a class.
+
+The class can have two attributes
+
+data - for storing the data
+next - for storing the link to the next node
+
+public class Node {	
+	String data;
+	Node next;
+}
+Here, the data to be stored is of type String since city names have to be stored.
+
+The data member variable can be of any primitive type or even objects of any class based on the requirement.
+
+The complete implementation of Node class is given below:
+
+public class Node {
+	
+	private String data;
+	private Node next;
+	
+	public Node(String data){
+		this.data=data;
+	}
+	
+	public void setData(String data){
+		this.data = data;
+	}
+	
+	public void setNext(Node node){
+		this.next = node;
+	}
+	
+	public String getData(){
+		return this.data;
+	}
+	
+	public Node getNext(){
+		return this.next;
+	}
+}
+
+
+
+#############################################################################################################################################################################
+
+
+A linked list can be represented as a set of nodes connected together.
+
+The node referred by head marks the beginning of the list and the node referred by tail, marks the end of the list.
+
+public class LinkedList {	
+	Node head;
+	Node tail;
+}
+The complete implementation of LinkedList class is given below:
+
+public class LinkedList {
+	private Node head;
+	private Node tail;
+	
+	public Node getHead(){
+		return this.head;
+	}
+	
+	public Node getTail(){
+		return this.tail;
+	}
+}
+
+
+#############################################################################################################################################################################
+
+
+The algorithm to add an element to a linked list is given below:
+
+add(data)
+1.Create a new node with the given data
+2.If the linked list is empty, then make this new node the head and the tail node
+3.Else,
+  a.Make the link of the tail node refer to the new node
+  b.Make the tail refer to the new node
+ 
